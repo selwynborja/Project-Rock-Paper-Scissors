@@ -32,10 +32,7 @@ function playRound(humanChoice, computerChoice){
   }
 } 
 
-  const humanSelection = getHumanChoice();
-  const computerSelection = getComputerChoice();
-  playRound(humanSelection, computerSelection);
-  function playRound(humanChoice, computerChoice){
+function playRound(humanChoice, computerChoice){
   if (humanChoice === computerChoice){
     return "It's a tie!";
   } else if (humanChoice === 'Rock' && computerChoice === 'Scissors'){
