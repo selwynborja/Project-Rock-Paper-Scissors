@@ -10,5 +10,9 @@ function getComputerChoice(){
   }
 }
 
-console.log(getComputerChoice());
+function getHumanChoice(){
+  const humanMove = prompt("Enter your move: Rock, Paper, or Scissors");
+  return humanMove;
+}
+
 
