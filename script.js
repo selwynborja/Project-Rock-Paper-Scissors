@@ -1,59 +1,24 @@
-let humanScore = 0;
-let computerScore = 0;
-
-function getComputerChoice(){
+function btnRock(){
   const randomNumber = Math.random();
+  let computerMove = '';
 
   if (randomNumber >= 0 && randomNumber < 1 / 3){
-    return 'Rock';
+    computerMove = 'Rock';
   } else if (randomNumber >= 1 / 3 && randomNumber < 2 / 3){
-    return 'Paper';
-  } else if (randomNumber > 2 / 3 && randomNumber <= 1){
-    return 'Scissors';
+    computerMove = 'Paper';
+  } else if (randomNumber >= 2 / 3 && randomNumber < 1){
+    computerMove = 'Scissors';
   }
+  console.log(computerMove);
+
+  let result = '';
+
+  if (computerMove === 'Rock'){
+    result = 'Tie';
+  } else if (computerMove === 'Paper'){
+    result = 'You lose';
+  } else if (computerMove === 'Scissors'){
+    result = 'You win'
+  }
+  alert(`You picked Rock. Computer picked ${computerMove}. ${result}`);
 }
-
-function getHumanChoice(){
-  const humanMove = prompt("Enter your move: Rock, Paper, or Scissors");
-  return humanMove;
-}
-
-function playRound(humanChoice, computerChoice){
-  if (humanChoice === computerChoice){
-    return "It's a tie!";
-  } else if (humanChoice === 'Rock' && computerChoice === 'Scissors'){
-     humanScore++;
-  } else if (humanChoice === 'Paper' && computerChoice === 'Rock'){
-      humanScore++;
-  } else if (humanChoice === 'Scissors' && computerChoice === 'Paper'){
-      humanScore++;
-  } else {
-      computerScore++;
-  }
-} 
-
-function playRound(humanChoice, computerChoice){
-  if (humanChoice === computerChoice){
-    return "It's a tie!";
-  } else if (humanChoice === 'Rock' && computerChoice === 'Scissors'){
-     humanScore++;
-  } else if (humanChoice === 'Paper' && computerChoice === 'Rock'){
-      humanScore++;
-  } else if (humanChoice === 'Scissors' && computerChoice === 'Paper'){
-      humanScore++;
-  } else {
-      computerScore++;
-  }
-} 
-
-  const humanSelection = getHumanChoice();
-  const computerSelection = getComputerChoice();
-  playRound(humanSelection, computerSelection);
-
-  console.log(`You chose: ${humanSelection}`);
-  console.log(`Computer chose: ${computerSelection}`);
-  console.log(`Your score: ${humanScore}`);
-  console.log(`Computer score: ${computerScore}`);
-
-
-
