@@ -7,16 +7,76 @@
   <style>
     body {
       font-family: Arial;
+      background-color: #000000;
+      color: #ccc;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    .move-icon{
+      height: 50px;
+    }
+
+    .title {
+      font-weight: bold;
+      font-size: 30px;
+    }
+
+    .move-button {
+      background: transparent;
+      border: 1px solid #ccc;
+      height: 120px;
+      width: 120px;
+      border-radius: 100%;
+      margin-right: 20px;
+    }
+
+    .result {
+      font-size: 25px;
+      font-weight: bold;
+      margin-top: 50px;
+    }
+
+    .score {
+      margin-top: 60px;
+    }
+
+    .reset-score-btn {
+      background-color: #ccc;
+      border: none;
+      font-size: 15px;
+      padding: 8px 15px;
     }
   </style>
 </head>
 <body>
-  <p>Rock Paper Scissors</p>
-  <p>huhu</p>
-  <button onclick="btnRock();">Rock</button>
-  <button onclick="btnPaper();">Paper</button>
-  <button onclick="btnScissors();">Scissors</button>
+  <p class="title">Rock Paper Scissors</p>
+  
+  <button onclick="playGame('Rock');" class="move-button">
+    <img src="img/rock-emoji.png" alt="rock-emoji" class="move-icon">
+  </button>
+  
+  <button onclick="playGame('Paper');" class="move-button">
+    <img src="img/paper-emoji.png" alt="paper-emoji" class="move-icon">
+  </button>
+  
+  <button onclick="playGame('Scissors');" class="move-button">
+    <img src="img/scissors-emoji.png" alt="scissors-emoji" class="move-icon">
+  </button>
 
+  <p class="js-result result"></p>
+  <p class="js-moves"></p>
+  <p class="js-score"></p>
+
+  <button onclick="
+    score.wins = 0;
+    score.losses = 0;
+    score.ties = 0;
+    localStorage.removeItem('score');
+    updateScoreElement();
+  " class="reset-score-btn">Reset Score</button>
   <script src="script.js"></script>
 </body>
 </html>
